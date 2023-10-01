@@ -195,13 +195,15 @@ summarise(totalspending = sum(disbursement_amount)) %>%
 
 For the individual who was paid the most, which payment category (disbursement_description) was the top one for him or her? And how much money were they paid in that category?
 
-First, I filter the recipient name to only give me data on Michael Glassner, and then I grouped by 
+First, I filter the recipient name to only give me data on Michael Glassner, and then I grouped by dispursement description and inserted the same summary and arranging code as above to get which payment category was Glassner's highest. I found that his highest category was PAYROLL. 
 
 ```{r}
 
 payments %>%
   filter(recipient_name == "GLASSNER, MICHAEL") %>%
-  group_by(dispursment_description) %>%
+  group_by(disbursement_description) %>%
+  summarise(totalspending = sum(disbursement_amount)) %>%
+  arrange(desc(totalspending))
 
 
 
