@@ -200,8 +200,8 @@ First, I filter the recipient name to only give me data on Michael Glassner, and
 ```{r}
 
 payments %>%
-  filter(recipient_name == "GLASSNER, MICHAEL")
-  group_by(dispursment_description)
+  filter(recipient_name == "GLASSNER, MICHAEL") %>%
+  group_by(dispursment_description) %>%
 
 
 
